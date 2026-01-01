@@ -126,7 +126,7 @@ arboard = "3.4.0"  # Clipboard
 
 ### 6. File System Access
 
-**Issue**: Uso of `std::fs` throughout codebase, especially in:
+**Issue**: Use of `std::fs` throughout codebase, especially in:
 - `src/storage.rs`
 - `src/bookmark.rs`
 - `src/download.rs`
