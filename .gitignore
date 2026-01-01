@@ -9,3 +9,8 @@ cargo-sources.json
 resources/*
 !resources/components/
 !resources/prefs.json
+
+# WASM build artifacts
+wasm/pkg/
+*.wasm
+*.js.map

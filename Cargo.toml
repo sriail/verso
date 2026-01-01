@@ -32,6 +32,10 @@ repository.workspace = true
 documentation = "https://docs.versotile.org/verso"
 categories = ["web-programming"]
 
+# Library for WASM builds
+[lib]
+crate-type = ["cdylib", "rlib"]
+
 [package.metadata.packager]
 name = "verso"
 product-name = "verso"
@@ -72,6 +76,14 @@ packager = ["dep:cargo-packager-resource-resolver"]
 flatpak = []
 tracing = []
 embed-useragent-stylesheets = []
+wasm = [
+    "dep:wasm-bindgen", 
+    "dep:web-sys", 
+    "dep:js-sys", 
+    "dep:wasm-bindgen-futures",
+    "dep:wasm-logger",
+    "dep:console_error_panic_hook",
+]
 
 [build-dependencies]
 cfg_aliases = "0.2"
@@ -164,6 +176,33 @@ objc2-app-kit = { version = "0.2", features = [
   "NSResponder",
   "NSWindow",
 ] }
+
+# WASM-specific dependencies
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = { version = "0.2", optional = true }
+wasm-bindgen-futures = { version = "0.4", optional = true }
+js-sys = { version = "0.3", optional = true }
+web-sys = { version = "0.3", optional = true, features = [
+    "Window",
+    "Document",
+    "Element",
+    "HtmlCanvasElement",
+    "WebGlRenderingContext",
+    "WebGl2RenderingContext",
+    "CanvasRenderingContext2d",
+    "MouseEvent",
+    "KeyboardEvent",
+    "WheelEvent",
+    "TouchEvent",
+    "EventTarget",
+    "Headers",
+    "Request",
+    "RequestInit",
+    "Response",
+    "console",
+] }
+wasm-logger = { version = "0.2", optional = true }
+console_error_panic_hook = { version = "0.1", optional = true }
 
 [[test]]
 name = "general"
