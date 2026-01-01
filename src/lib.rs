@@ -40,3 +40,9 @@ pub(crate) mod storage;
 pub mod tab;
 /// Utilities
 pub(crate) mod utils;
+
+// WASM-specific module and entry point
+#[cfg(target_arch = "wasm32")]
+/// WASM-specific implementation for browser-in-browser
+pub mod wasm;
+

@@ -1,2 +1,7 @@
 [env]
 RUSTC_BOOTSTRAP = "crown,script,script_bindings,style_tests,mozjs,mozjs_sys"
+
+# Configuration for WASM builds
+[target.wasm32-unknown-unknown]
+# Increase max memory for WASM (4GB)
+rustflags = ["-C", "link-arg=--max-memory=4294967296"]
