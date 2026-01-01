@@ -110,3 +110,22 @@ Nightly releases built with CrabNebula Cloud can be found at [releases](https://
 - Enable multiprocess mode.
 - Enable sandbox in all platforms.
 - Enable `Gstreamer` feature.
+
+## WASM Experimental Support
+
+⚠️ **Experimental**: WASM build infrastructure has been added but is not fully functional.
+
+Basic WASM build setup is available:
+- Build configuration and scripts in `wasm/` directory
+- WASM feature flag and dependencies
+- HTML host page and browser UI
+- API structure for browser-in-browser concept
+
+**Current Status**: Infrastructure only. Full compilation blocked by upstream dependencies (Servo, winit, glutin).
+
+See documentation:
+- `WASM_CONVERSION.md` - Complete conversion guide
+- `WASM_BLOCKING_ISSUES.md` - Known blockers and solutions
+- `wasm/README.md` - Build instructions
+
+Test the infrastructure: `./wasm/test_infrastructure.sh`
